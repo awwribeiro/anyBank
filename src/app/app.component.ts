@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { BannerComponent } from "./componentes/banner/banner.component";
+import { NovaTransacaoComponent } from "./componentes/nova-transacao/nova-transacao.component";
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [BannerComponent, NovaTransacaoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
