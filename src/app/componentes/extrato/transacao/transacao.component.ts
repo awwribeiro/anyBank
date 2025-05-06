@@ -9,10 +9,20 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
   styleUrl: './transacao.component.css'
 })
 export class TransacaoComponent {
+
+  // Declara uma propriedade reativa obrigatória do tipo Transacao.
+  // Espera receber esse dado como input do componente pai.
   transacao = input.required<Transacao>();
 
+
+  // Computed Signal: valor é calculado automaticamente com base na transação recebida.
   valor = computed(() => {
-    if(this.transacao().tipo === TipoTransacao.SAQUE) {return -this.transacao().valor}
-    return this.transacao().valor
+    // Se o tipo da transação for SAQUE, retorna o valor negativo
+    if(this.transacao().tipo === TipoTransacao.SAQUE) {
+      return -this.transacao().valor;
+    }
+
+    // Caso contrário, retorna o valor normalmente
+    return this.transacao().valor;
   });
 }

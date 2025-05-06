@@ -7,26 +7,26 @@ import { KeyValuePipe } from '@angular/common';
   selector: 'app-nova-transacao',
   imports: [FormsModule, KeyValuePipe],
   templateUrl: './nova-transacao.component.html',
-  styleUrl: './nova-transacao.component.css'
+  styleUrl: './nova-transacao.component.css' 
 })
 export class NovaTransacaoComponent {
-  valorTransacao = "";
-  tipoTransacao = ""
+  valorTransacao = ""; // Armazena temporariamente o valor digitado pelo usuário
+  tipoTransacao = ""; // Armazena temporariamente o tipo de transação selecionado
 
-  TipoTransacaoEnum = TipoTransacao;
+  TipoTransacaoEnum = TipoTransacao; // Referência ao enum para ser usado no template
 
-  transacaoCriada = output<Transacao>();
+  transacaoCriada = output<Transacao>(); // Output que emite o evento com uma nova transação
 
-  aoSubmeter() {
-
-      const transacao = new Transacao(
-          this.tipoTransacao as TipoTransacao,
-          Number(this.valorTransacao)
+  aoSubmeter() { // Método executado ao submeter o formulário
+      const transacao = new Transacao( // Cria uma nova transação com os dados fornecidos
+          this.tipoTransacao as TipoTransacao, // Converte o tipo de string para TipoTransacao
+          Number(this.valorTransacao) // Converte a string de valor para número
       );
 
-      this.transacaoCriada.emit(transacao);
+      this.transacaoCriada.emit(transacao); // Emite o evento com a nova transação criada
 
-      this.tipoTransacao = "";
-      this.valorTransacao = "";
+      this.tipoTransacao = ""; // Limpa o campo tipoTransacao
+      this.valorTransacao = ""; // Limpa o campo valorTransacao
   }
 }
+

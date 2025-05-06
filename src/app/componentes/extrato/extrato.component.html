@@ -2,10 +2,22 @@
   <h2 class="titulo">Extrato</h2>
 
   <ul class="transacoes">
+    <!-- Diretiva Angular de estrutura "@for": faz um loop sobre o resultado da função sinal `transacoes()`
+      `track transacao.id` serve para otimizar a renderização informando que cada item deve ser rastreado pelo seu `id`-->
     @for (transacao of transacoes(); track transacao.id) {
+
+      <!-- Cada transação será representada por um item de lista -->
       <li>
+        <!-- Componente filho que recebe a transação atual como input -->
         <app-transacao [transacao]="transacao" ></app-transacao>
       </li>
-    } @empty { <li aria-hidden="true">Ainda não há transações.</li> }
+
+    <!-- Bloco opcional: caso a lista esteja vazia, exibe uma mensagem alternativa -->
+    } @empty {
+      <!-- Item oculto de lista acessível apenas por leitores de tela, avisando que não há transações -->
+      <li aria-hidden="true">Ainda não há transações.</li>
+    }
+
   </ul>
+
 </aside>

@@ -1,4 +1,6 @@
 <div class="transacao">
+   <!-- pipe ( | ) transforma valores antes de exibi-los no HTML -->
   <span class="valor">{{ valor() | currency:'BRL' }}</span>
   <span class="data">{{ transacao().data | date:'dd/MM/yyyy' }}</span>
 </div>
+

@@ -9,5 +9,7 @@ import { ContaComponent } from "./conta/conta.component";
   styleUrl: './banner.component.css'
 })
 export class BannerComponent {
-  saldo = input.required<number>();
+  saldo = input.required<number>(); //declara uma propriedade de entrada obrigatória
+  //saldo deve ser fornecido por um componente pai ao usar <app-banner>
+
 }

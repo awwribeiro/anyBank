@@ -1,7 +1,16 @@
 <div class="app">
   <div class="banner-form-wrapper">
+    <!-- Componente que exibe o saldo atual.
+         A propriedade "saldo" está sendo passada como um input, com o valor vindo da função saldo() -->
     <app-banner [saldo]="saldo()" ></app-banner>
+
+    <!-- Quando uma nova transação for criada, emite um evento "transacaoCriada"
+         que chama a função "processarTransacao()" no componente pai passando o evento ($event) como argumento -->
     <app-nova-transacao (transacaoCriada)="processarTransacao($event)"></app-nova-transacao>
+
   </div>
+
+  <!-- A propriedade "transacoes" recebe a lista atual de transações do signal transacoes() -->
   <app-extrato [transacoes]="transacoes()" class="extrato" ></app-extrato>
+
 </div>
